@@ -30,7 +30,6 @@ app.post("/send-email", async (req, res) => {
 
   // Replace placeholders in the HTML template with actual values
   const formattedHtml = emailTemplate
-    .replace("{{name}}", subject)
     .replace("{{name}}", name)
     .replace("{{email}}", email)
     .replace("{{message}}", message);
