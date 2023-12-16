@@ -3,6 +3,9 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require("dotenv").config();
+const path = require("path");
+const fs = require("fs");
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -17,26 +20,27 @@ app.post("/send-email", async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "jayedbinjahangir@gmail.com",
-      pass: "kpqz auat xevr gxec",
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
     },
   });
+
+  // Read the HTML template
+  const emailTemplatePath = path.join(__dirname, "email-template.html");
+  const emailTemplate = fs.readFileSync(emailTemplatePath, "utf-8");
+
+  // Replace placeholders in the HTML template with actual values
+  const formattedHtml = emailTemplate
+    .replace("{{name}}", name)
+    .replace("{{email}}", email)
+    .replace("{{message}}", message);
 
   // Email configuration
   const mailOptions = {
     from: email,
     to: "jayedbinjahangir@gmail.com",
-    subject: "New Contact Form Submission",
-    html: `
-    <div style="font-family: 'Arial', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-      <h2 style="color: #333; text-align: center;">Contact Form Submission</h2>
-      <div style="margin-top: 20px;">
-        <p style="margin-bottom: 10px;"><strong style="color: #555;">Name:</strong> ${name}</p>
-        <p style="margin-bottom: 10px;"><strong style="color: #555;">Email:</strong> ${email}</p>
-        <p style="margin-bottom: 10px;"><strong style="color: #555;">Message:</strong> ${message}</p>
-      </div>
-    </div>
-  `,
+    subject: "Message For You!!",
+    html: formattedHtml,
   };
 
   try {
@@ -50,5 +54,5 @@ app.post("/send-email", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on ${port}`);
 });

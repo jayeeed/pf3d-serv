@@ -1,0 +1,61 @@
+<!-- email-template.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message For You!!</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #d8d3d3;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #aefec2;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgb(255, 0, 0);
+      }
+
+      h2 {
+        color: #572424;
+        font-weight: 800;
+        font-size: xx-large;
+        font-family: "Brush Script MT", cursive;
+        text-align: center;
+      }
+
+      .info {
+        margin-top: 20px;
+      }
+
+      .info p {
+        margin-bottom: 15px;
+        font-weight: 500;
+        font-size: large;
+      }
+
+      strong {
+        color: #6b4c4c;
+        font-size: large;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Message For You!!</h2>
+      <div class="info">
+        <p><strong>Name:</strong> {{name}}</p>
+        <p><strong>Email:</strong> {{email}}</p>
+        <p><strong>Message:</strong> {{message}}</p>
+      </div>
+    </div>
+  </body>
+</html>
