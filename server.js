@@ -47,7 +47,7 @@ app.post("/send-email", async (req, res) => {
     await transporter.sendMail(mailOptions);
 
     // Log a notification to the terminal
-    console.log("Email sent:", "\nName: " + name, "\nEmail: " + email);
+    console.log("Got a new mail from:", "\nName: " + name, "\nEmail: " + email);
 
     res.status(200).send("Email sent successfully");
   } catch (error) {
