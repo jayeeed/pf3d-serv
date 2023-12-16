@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
@@ -8,7 +7,7 @@ const path = require("path");
 const fs = require("fs");
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -31,6 +30,7 @@ app.post("/send-email", async (req, res) => {
 
   // Replace placeholders in the HTML template with actual values
   const formattedHtml = emailTemplate
+    .replace("{{name}}", subject)
     .replace("{{name}}", name)
     .replace("{{email}}", email)
     .replace("{{message}}", message);
@@ -46,6 +46,10 @@ app.post("/send-email", async (req, res) => {
   try {
     // Send email
     await transporter.sendMail(mailOptions);
+
+    // Log a notification to the terminal
+    console.log("Email sent successfully");
+
     res.status(200).send("Email sent successfully");
   } catch (error) {
     console.error(error);
