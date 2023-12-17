@@ -1,17 +1,25 @@
+// libs
 const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
-const cors = require("cors");
-require("dotenv").config();
 const path = require("path");
 const fs = require("fs");
+const cors = require("cors");
 
+// env conf.
+require("dotenv").config();
+
+// app init
 const app = express();
 const port = process.env.PORT;
 
+// middleware
 app.use(bodyParser.json());
+
+// cors
 app.use(cors());
 
+// api
 app.post("/send-email", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -56,6 +64,7 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
+// listener
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });
