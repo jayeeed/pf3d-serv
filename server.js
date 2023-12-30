@@ -33,7 +33,7 @@ app.post("/send-email", async (req, res) => {
   });
 
   // Read the HTML template for the main email
-  const emailTemplatePath = path.join(__dirname, "templates/get.html");
+  const emailTemplatePath = path.join(__dirname, "templetes/get.html");
   const emailTemplate = fs.readFileSync(emailTemplatePath, "utf-8");
 
   // Replace placeholders in the HTML template with actual values
@@ -61,7 +61,7 @@ app.post("/send-email", async (req, res) => {
     // Read the HTML template for the thank-you email
     const thankYouEmailTemplatePath = path.join(
       __dirname,
-      "templates/send.html"
+      "templetes/send.html"
     );
     const thankYouEmailTemplate = fs.readFileSync(
       thankYouEmailTemplatePath,
