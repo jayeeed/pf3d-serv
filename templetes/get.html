@@ -35,45 +35,6 @@
       </xml>
     <![endif]-->
     <style type="text/css">
-      /* Light mode styles */
-
-      :root {
-        --background-color: #ffffff;
-        --text-color: #000000;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        /* Dark mode styles */
-
-        :root {
-          --background-color: #1a1a1a;
-          --text-color: #ffffff;
-        }
-      }
-
-      body {
-        background-color: var(--background-color);
-        color: var(--text-color);
-      }
-
-      .rollover:hover .rollover-first {
-        max-height: 0px !important;
-        display: none !important;
-      }
-
-      .rollover:hover .rollover-second {
-        max-height: none !important;
-        display: block !important;
-      }
-
-      /* ... (other styles) ... */
-
-      @media screen and (max-width: 384px) {
-        .mail-message-content {
-          width: 414px !important;
-        }
-      }
-
       .rollover:hover .rollover-first {
         max-height: 0px !important;
         display: none !important;
@@ -121,9 +82,6 @@
         color: #ffffff !important;
       }
       @media only screen and (max-width: 600px) {
-        .es-m-p0r {
-          padding-right: 0px !important;
-        }
         .es-m-p5t {
           padding-top: 5px !important;
         }
@@ -522,7 +480,13 @@
                       <td
                         class="esdev-adapt-off"
                         align="left"
-                        style="padding: 20px; margin: 0"
+                        style="
+                          margin: 0;
+                          padding-top: 5px;
+                          padding-right: 25px;
+                          padding-bottom: 15px;
+                          padding-left: 15px;
+                        "
                       >
                         <table
                           cellpadding="0"
@@ -545,81 +509,6 @@
                               <table
                                 cellpadding="0"
                                 cellspacing="0"
-                                class="es-left"
-                                align="left"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                  border-collapse: collapse;
-                                  border-spacing: 0px;
-                                  float: left;
-                                "
-                              >
-                                <tr>
-                                  <td
-                                    class="es-m-p0r"
-                                    valign="top"
-                                    align="center"
-                                    style="padding: 0; margin: 0; width: 73px"
-                                  >
-                                    <table
-                                      cellpadding="0"
-                                      cellspacing="0"
-                                      width="100%"
-                                      style="
-                                        mso-table-lspace: 0pt;
-                                        mso-table-rspace: 0pt;
-                                        border-collapse: collapse;
-                                        border-spacing: 0px;
-                                      "
-                                    >
-                                      <tr>
-                                        <td
-                                          align="left"
-                                          class="es-m-txt-l"
-                                          style="
-                                            padding: 0;
-                                            margin: 0;
-                                            font-size: 0px;
-                                          "
-                                        >
-                                          <a
-                                            target="_blank"
-                                            href="https://xy3d.netlify.app/"
-                                            style="
-                                              mso-line-height-rule: exactly;
-                                              text-decoration: underline;
-                                              color: #f6c6ea;
-                                              font-size: 14px;
-                                            "
-                                            ><img
-                                              src="https://fcgfakk.stripocdn.email/content/guids/CABINET_6238642ba45954e6d6ce5fb7661d4679/images/finger_16converted_BrK.png"
-                                              alt=""
-                                              style="
-                                                display: block;
-                                                font-size: 14px;
-                                                border: 0;
-                                                outline: none;
-                                                text-decoration: none;
-                                              "
-                                              width="60"
-                                          /></a>
-                                        </td>
-                                      </tr>
-                                    </table>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                            <td style="padding: 0; margin: 0; width: 20px"></td>
-                            <td
-                              class="esdev-mso-td"
-                              valign="top"
-                              style="padding: 0; margin: 0"
-                            >
-                              <table
-                                cellpadding="0"
-                                cellspacing="0"
                                 class="es-right"
                                 align="right"
                                 style="
@@ -633,7 +522,7 @@
                                 <tr>
                                   <td
                                     align="left"
-                                    style="padding: 0; margin: 0; width: 467px"
+                                    style="padding: 0; margin: 0; width: 560px"
                                   >
                                     <table
                                       cellpadding="0"
@@ -653,8 +542,6 @@
                                           style="
                                             padding: 0;
                                             margin: 0;
-                                            padding-top: 10px;
-                                            padding-bottom: 5px;
                                             font-size: 0px;
                                           "
                                         >
@@ -677,7 +564,7 @@
                                                 outline: none;
                                                 text-decoration: none;
                                               "
-                                              width="55"
+                                              width="60"
                                           /></a>
                                         </td>
                                       </tr>
@@ -741,9 +628,9 @@
                         style="
                           margin: 0;
                           padding-top: 40px;
-                          padding-right: 20px;
+                          padding-right: 60px;
                           padding-bottom: 40px;
-                          padding-left: 20px;
+                          padding-left: 60px;
                           border-radius: 20px;
                           background-image: url(https://fcgfakk.stripocdn.email/content/guids/CABINET_9b143e749e3aaed3697507da71b3bd7b7e0aa7b60b3fdc77ad722f0ebae80f8e/images/meshgradient_3.png);
                           background-repeat: no-repeat;
@@ -754,19 +641,22 @@
                         <table
                           cellpadding="0"
                           cellspacing="0"
+                          align="right"
+                          class="es-right"
                           width="100%"
                           style="
                             mso-table-lspace: 0pt;
                             mso-table-rspace: 0pt;
                             border-collapse: collapse;
                             border-spacing: 0px;
+                            float: right;
                           "
                         >
                           <tr>
                             <td
                               align="center"
                               valign="top"
-                              style="padding: 0; margin: 0; width: 560px"
+                              style="padding: 0; margin: 0; width: 480px"
                             >
                               <table
                                 cellpadding="0"
@@ -799,7 +689,9 @@
                                         color: #350d51;
                                       "
                                     >
-                                      You have a new​ message!
+                                      <span style="background: transparent"
+                                        >You have a new​ message!</span
+                                      >
                                     </h1>
                                   </td>
                                 </tr>
@@ -839,7 +731,7 @@
                                 margin: 0;
                                 border-radius: 20px;
                                 overflow: hidden;
-                                width: 560px;
+                                width: 480px;
                               "
                             >
                               <table
@@ -865,10 +757,10 @@
                                     align="left"
                                     class="es-text-2261"
                                     style="
-                                      padding: 0;
                                       margin: 0;
-                                      padding-top: 25px;
+                                      padding-top: 20px;
                                       padding-right: 30px;
+                                      padding-bottom: 5px;
                                       padding-left: 30px;
                                     "
                                   >
@@ -899,10 +791,10 @@
                                     align="left"
                                     style="
                                       margin: 0;
-                                      padding-right: 30px;
-                                      padding-left: 30px;
                                       padding-top: 5px;
+                                      padding-right: 40px;
                                       padding-bottom: 25px;
+                                      padding-left: 40px;
                                     "
                                   >
                                     <p
