@@ -57,12 +57,40 @@ app.post("/send-email", async (req, res) => {
     // Log a notification to the terminal
     console.log("Got a new mail from:", "\nName: " + name, "\nEmail: " + email);
 
+    // Send thank-you email
+    await sendThankYouEmail(email);
+
     res.status(200).send("Email sent successfully");
   } catch (error) {
     console.error(error);
     res.status(500).send("Error sending email");
   }
 });
+
+// Function to send a thank-you email
+async function sendThankYouEmail(toEmail) {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
+    },
+  });
+
+  const thankYouMailOptions = {
+    from: process.env.GMAIL_USER,
+    to: toEmail,
+    subject: "Thank You for Your Message",
+    text: "Thank you for reaching out to us. We appreciate your message and will get back to you as soon as possible.",
+  };
+
+  try {
+    await transporter.sendMail(thankYouMailOptions);
+    console.log("Thank-you email sent to:", toEmail);
+  } catch (error) {
+    console.error("Error sending thank-you email:", error);
+  }
+}
 
 // listener
 app.listen(port, () => {
