@@ -78,11 +78,22 @@ async function sendThankYouEmail(toEmail) {
     },
   });
 
+  // Read the HTML template
+  const emailTemplatePath = path.join(__dirname, "templetes/get.html");
+  const emailTemplate = fs.readFileSync(emailTemplatePath, "utf-8");
+
+  // Replace placeholders in the HTML template with actual values
+  const formattedHtml = emailTemplate
+    .replace("{{name}}", name)
+    .replace("{{name}}", name)
+    .replace("{{email}}", email)
+    .replace("{{message}}", message);
+
   const thankYouMailOptions = {
     from: process.env.GMAIL_USER,
     to: toEmail,
-    subject: "Thank You for Your Message",
-    text: "Thank you for reaching out to us. We appreciate your message and will get back to you as soon as possible.",
+    subject: "Thank You for Your Message!!",
+    html: formattedHtml,
   };
 
   try {
