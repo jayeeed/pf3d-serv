@@ -97,7 +97,7 @@ async function sendThankYouEmail(toEmail, formattedThankYouHtml) {
   const thankYouMailOptions = {
     from: process.env.GMAIL_USER,
     to: toEmail,
-    subject: "Thank You for Your Message!!",
+    subject: "Thank You for Reaching Out!!",
     html: formattedThankYouHtml,
   };
 
