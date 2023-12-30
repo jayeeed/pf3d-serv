@@ -79,7 +79,7 @@ async function sendThankYouEmail(toEmail) {
   });
 
   // Read the HTML template
-  const emailTemplatePath = path.join(__dirname, "templetes/get.html");
+  const emailTemplatePath = path.join(__dirname, "templetes/send.html");
   const emailTemplate = fs.readFileSync(emailTemplatePath, "utf-8");
 
   // Replace placeholders in the HTML template with actual values
