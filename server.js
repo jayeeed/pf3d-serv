@@ -69,12 +69,9 @@ app.post("/send-email", async (req, res) => {
     );
 
     // Replace placeholders in the thank-you email template with actual values
-    const formattedThankYouHtml = thankYouEmailTemplate.replace(
-      "{{name}}",
-      name,
-      "{{message}}",
-      message
-    );
+    const formattedThankYouHtml = thankYouEmailTemplate
+      .replace("{{name}}", name)
+      .replace("{{message}}", message);
 
     // Send thank-you email
     await sendThankYouEmail(email, formattedThankYouHtml);
