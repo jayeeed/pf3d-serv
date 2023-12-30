@@ -41,6 +41,7 @@ app.post("/send-email", async (req, res) => {
     .replace("{{name}}", name)
     .replace("{{name}}", name)
     .replace("{{email}}", email)
+    .replace("{{message}}", message)
     .replace("{{message}}", message);
 
   // Email configuration
