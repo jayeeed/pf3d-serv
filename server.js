@@ -39,6 +39,7 @@ app.post("/send-email", async (req, res) => {
   // Replace placeholders in the HTML template with actual values
   const formattedHtml = emailTemplate
     .replace("{{name}}", name)
+    .replace("{{name}}", name)
     .replace("{{email}}", email)
     .replace("{{message}}", message);
 
@@ -70,7 +71,9 @@ app.post("/send-email", async (req, res) => {
     // Replace placeholders in the thank-you email template with actual values
     const formattedThankYouHtml = thankYouEmailTemplate.replace(
       "{{name}}",
-      name
+      name,
+      "{{message}}",
+      message
     );
 
     // Send thank-you email
