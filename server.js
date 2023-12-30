@@ -32,13 +32,12 @@ app.post("/send-email", async (req, res) => {
     },
   });
 
-  // Read the HTML template
-  const emailTemplatePath = path.join(__dirname, "templetes/get.html");
+  // Read the HTML template for the main email
+  const emailTemplatePath = path.join(__dirname, "templates/get.html");
   const emailTemplate = fs.readFileSync(emailTemplatePath, "utf-8");
 
   // Replace placeholders in the HTML template with actual values
   const formattedHtml = emailTemplate
-    .replace("{{name}}", name)
     .replace("{{name}}", name)
     .replace("{{email}}", email)
     .replace("{{message}}", message);
@@ -58,8 +57,24 @@ app.post("/send-email", async (req, res) => {
     // Log a notification to the terminal
     console.log("Got a new mail from:", "\nName: " + name, "\nEmail: " + email);
 
+    // Read the HTML template for the thank-you email
+    const thankYouEmailTemplatePath = path.join(
+      __dirname,
+      "templates/send.html"
+    );
+    const thankYouEmailTemplate = fs.readFileSync(
+      thankYouEmailTemplatePath,
+      "utf-8"
+    );
+
+    // Replace placeholders in the thank-you email template with actual values
+    const formattedThankYouHtml = thankYouEmailTemplate.replace(
+      "{{name}}",
+      name
+    );
+
     // Send thank-you email
-    await sendThankYouEmail(email);
+    await sendThankYouEmail(email, formattedThankYouHtml);
 
     res.status(200).send("Email sent successfully");
   } catch (error) {
@@ -69,7 +84,7 @@ app.post("/send-email", async (req, res) => {
 });
 
 // Function to send a thank-you email
-async function sendThankYouEmail(toEmail) {
+async function sendThankYouEmail(toEmail, formattedThankYouHtml) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -78,22 +93,11 @@ async function sendThankYouEmail(toEmail) {
     },
   });
 
-  // Read the HTML template
-  const emailTemplatePath = path.join(__dirname, "templetes/send.html");
-  const emailTemplate = fs.readFileSync(emailTemplatePath, "utf-8");
-
-  // Replace placeholders in the HTML template with actual values
-  const formattedHtml = emailTemplate
-    .replace("{{name}}", name)
-    .replace("{{name}}", name)
-    .replace("{{email}}", email)
-    .replace("{{message}}", message);
-
   const thankYouMailOptions = {
     from: process.env.GMAIL_USER,
     to: toEmail,
     subject: "Thank You for Your Message!!",
-    html: formattedHtml,
+    html: formattedThankYouHtml,
   };
 
   try {
