@@ -35,6 +35,45 @@
       </xml>
     <![endif]-->
     <style type="text/css">
+      /* Light mode styles */
+
+      :root {
+        --background-color: #ffffff;
+        --text-color: #000000;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        /* Dark mode styles */
+
+        :root {
+          --background-color: #1a1a1a;
+          --text-color: #ffffff;
+        }
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+
+      .rollover:hover .rollover-first {
+        max-height: 0px !important;
+        display: none !important;
+      }
+
+      .rollover:hover .rollover-second {
+        max-height: none !important;
+        display: block !important;
+      }
+
+      /* ... (other styles) ... */
+
+      @media screen and (max-width: 384px) {
+        .mail-message-content {
+          width: 414px !important;
+        }
+      }
+
       .rollover:hover .rollover-first {
         max-height: 0px !important;
         display: none !important;
