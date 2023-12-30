@@ -33,7 +33,7 @@ app.post("/send-email", async (req, res) => {
   });
 
   // Read the HTML template
-  const emailTemplatePath = path.join(__dirname, "email-template.html");
+  const emailTemplatePath = path.join(__dirname, "templetes/get.html");
   const emailTemplate = fs.readFileSync(emailTemplatePath, "utf-8");
 
   // Replace placeholders in the HTML template with actual values
