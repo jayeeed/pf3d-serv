@@ -11,7 +11,9 @@
     <meta name="x-apple-disable-message-reformatting" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="telephone=no" name="format-detection" />
-    <title>New email template 2023-12-30</title>
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <title>get</title>
     <!--[if (mso 16)]>
       <style type="text/css">
         a {
@@ -35,6 +37,28 @@
       </xml>
     <![endif]-->
     <style type="text/css">
+      :root {
+        color-scheme:light dark;
+        supported-color-schemes: light dark;
+        }
+
+        /* Dark mode Text color control */
+        @media (prefers-color-scheme: light) {
+        * {
+        color: rgb(15, 21, 84) !important;
+        -webkit-text-fill-color: rgb(15, 21, 84) !important;
+        }
+
+        [data-ogsb] {
+        color: rgb(15, 21, 84) !important;
+        -webkit-text-fill-color: rgb(15, 21, 84) !important;
+        }
+
+        /* Codepen styling */
+        @media (prefers-color-scheme: dark) {
+          body {background-color: #221c1c;}
+        }
+
       .rollover:hover .rollover-first {
         max-height: 0px !important;
         display: none !important;
@@ -1062,7 +1086,7 @@
                                           'Segoe UI Symbol';
                                         line-height: 15px;
                                         letter-spacing: 0;
-                                        color: #f6c6ea;
+                                        color: #ffffff;
                                         font-size: 10px;
                                       "
                                     >
