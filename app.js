@@ -32,6 +32,11 @@ app.post("/send-email", async (req, res) => {
     },
   });
 
+  // welcome
+  app.get("/", (res) => {
+    res.status(200).send("Deployment Successful! 🥳");
+  });
+
   // Read the HTML template for the main email
   const emailTemplatePath = path.join(__dirname, "templetes/get.html");
   const emailTemplate = fs.readFileSync(emailTemplatePath, "utf-8");
