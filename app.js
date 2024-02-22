@@ -33,7 +33,7 @@ app.post("/send-email", async (req, res) => {
   });
 
   // welcome
-  app.get("/", (res) => {
+  app.get("/", (req, res) => {
     res.status(200).send("Deployment Successful! 🥳");
   });
 
